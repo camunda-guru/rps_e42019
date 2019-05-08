@@ -1,0 +1,59 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>TychoParentProject</groupId>
+  <artifactId>TychoParentProject</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <properties>
+       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+       <!-- 0.22.0 : Target location type: Directory is not supported -->
+       <tycho.version>0.25.0</tycho.version>
+	<eclipse>http://download.eclipse.org/releases/neon/</eclipse>
+
+   </properties>
+  <repositories>
+       <!-- Select the P2 repository to be used when resolving dependencies -->
+ 
+       <repository>
+           <id>eclipse-neon</id>
+           <layout>p2</layout>
+           <url>http://download.eclipse.org/releases/neon</url>
+       </repository>
+ 
+   </repositories>
+   
+   <pluginRepositories>
+       <pluginRepository>
+           <id>tycho-snapshots</id>
+           <url>https://oss.sonatype.org/content/groups/public/</url>
+       </pluginRepository>
+   </pluginRepositories>
+   
+  <build>
+    <sourceDirectory>src</sourceDirectory>
+    <plugins>
+     <plugin>
+		<groupId>org.eclipse.tycho</groupId>
+		<artifactId>tycho-maven-plugin</artifactId>
+		<version>${tycho.version}</version>
+		<extensions>true</extensions>
+	 </plugin>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.5.1</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+  
+  <modules>  
+       <module>../TychoRCP</module>
+       <module>../TychoOSGi</module>      
+   </modules>
+  
+  
+  
+</project>
